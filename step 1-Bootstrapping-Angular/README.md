@@ -24,8 +24,8 @@
             </table>
         </div>
 
-  All the ng-*s that you see in the html markup is somethimg called directives. To quote angular documention - "A directive is a behavior or DOM transformation which is triggered by the presence of a custom attribute, element name, class name or comment. A directive allows you to extend the HTML vocabulary in a declarative fashion.". You can define your own directives but more on that later.
-  Below are a few commonly used directives along with a description of what they do.
+  All the ng-*s that you see in the html markup are somethimg called directives. To quote angular documention - "A directive is a behavior or DOM transformation which is triggered by the presence of a custom attribute, element name, class name or comment. A directive allows you to extend the HTML vocabulary in a declarative fashion.". You can define your own directives but more on that later.
+  Below are the directives used in the code snippet above, along with a description of what they do.
 
   1. ng-controller="surveyListcontroller" :
   2. ng-repeat="survey in surveys" :
