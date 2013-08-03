@@ -4,6 +4,7 @@
   There are other ways to bootstrap the angular application, which we'll take a look at later on.
 * The second set of changes that are angular related are highlighted below. The explanation follows after that.
 index.html snippet.
+
         <div class="container" ng-controller="surveyListcontroller">
             <button class="btn btn-primary">New</button>
             <table class="table table-bordered">
@@ -25,6 +26,7 @@ index.html snippet.
         </div>
 
 app.js snippet
+
         var surveyListcontroller = function($scope){
             $scope.surveys = [
               {id:1, name:"survey1", description:"survey description 1"},
