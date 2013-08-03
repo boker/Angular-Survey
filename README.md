@@ -8,34 +8,34 @@ A hypothetical Survey application has been taken, and only a very small portion 
 The tutorial is organized as a set of steps (the next step builds on the previous step) as follows:
 
 ###Step 1: 
-This is a seed html page using twitter bootstrap. The page contains a simple menu, with a static list of surveys.
-It contains nothing angular, but what the starting page would look like.
+This is a seed html page using twitter bootstrap. 
+The page contains a simple menu, with a static list of surveys. It contains nothing angular, but what the starting page would look like.
 
 ###Step 2: 
 This step introduces the very minimal angular bootstrapping. It covers the following:
-    - simple bootstrapping
-    - controller
-    - ng-repeat, to create the list of surveys dynamically
-    - {{}} syntax
-    - ng-class directive
-    - ng-click directive
+* simple bootstrapping
+* controller
+* ng-repeat, to create the list of surveys dynamically
+* {{}} syntax
+* ng-class directive
+* ng-click directive
 
 ###Step 3: 
 This provides more structure to the above and introduces the following:
-    - defining the main application module
-    - introduces routing and partial pages
+* defining the main application module
+* introduces routing and partial pages
 
 ###Step 4: 
 This introduces services. In additional it covers the following:
-    - $http service
-    - Services, Factories and Providers
+* $http service
+* Services, Factories and Providers
 
 ###Step 5: 
 This introduces a new page for survey edit. In the process it covers the following:
-    - ng-model
-    - Forms
-    - validation
-    - ng-select
+* ng-model
+* Forms
+* validation
+* ng-select
     
 ###Step 6: This introduces the concept of filters
 
