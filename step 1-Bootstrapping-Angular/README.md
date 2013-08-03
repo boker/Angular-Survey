@@ -1,6 +1,9 @@
 ##Step 1:
 
 * The first thing that has been done to make angular aware of this single page application is to specify an attribute of ng-app. The angular.js file is included in the index.html file. Once the html page loads, angular bootstraps itself on finding that ng-app.
+  
+        <html class="no-js" ng-app>
+
   There are other ways to bootstrap the angular application, which we'll take a look at later on.
 * The second set of changes that are angular related are highlighted below. The explanation follows after that.
 index.html snippet.
