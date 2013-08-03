@@ -7,11 +7,11 @@ The focus is on learning angular, keeping it simple and not introduce TDD etc. w
 A hypothetical Survey application has been taken, and only a very small portion of this will be built.. leaving the rest up to the readers as an excercise.
 The tutorial is organized as a set of steps (the next step builds on the previous step) as follows:
 
-###Step 1: 
+###Step 0: 
 This is a seed html page using twitter bootstrap. 
 The page contains a simple menu, with a static list of surveys. It contains nothing angular, but what the starting page would look like.
 
-###Step 2: 
+###Step 1: 
 This step introduces the very minimal angular bootstrapping. It covers the following:
 * simple bootstrapping
 * controller
@@ -20,31 +20,31 @@ This step introduces the very minimal angular bootstrapping. It covers the follo
 * ng-class directive
 * ng-click directive
 
-###Step 3: 
+###Step 2: 
 This provides more structure to the above and introduces the following:
 * defining the main application module
 * introduces routing and partial pages
 
-###Step 4: 
+###Step 3: 
 This introduces services. In additional it covers the following:
 * $http service
 * Services, Factories and Providers
 
-###Step 5: 
+###Step 4: 
 This introduces a new page for survey edit. In the process it covers the following:
 * ng-model
 * Forms
 * validation
 * ng-select
     
-###Step 6: This introduces the concept of filters
+###Step 5: This introduces the concept of filters
 
 
         
-###Step 7: This step introduces the concept of promises
+###Step 6: This step introduces the concept of promises
 
 
-Step 8: This shows the development of a custom directive
+###Step 7: This shows the development of a custom directive
 
 
-Step 9: Takes a further dive into the world of directives and tries to use a JQuery Plugin internally to provide a declarative interface to JQuery
+###Step 8: Takes a further dive into the world of directives and tries to use a JQuery Plugin internally to provide a declarative interface to JQuery
