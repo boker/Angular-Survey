@@ -1,4 +1,4 @@
-##Step 2:
+##Step 1:
 
 * The first thing that has been done to make angular aware of this single page application is to specify an attribute of ng-app. The angular.js file is included in the index.html file. Once the html page loads, angular bootstraps itself on finding that ng-app.
   There are other ways to bootstrap the angular application, which we'll take a look at later on.
