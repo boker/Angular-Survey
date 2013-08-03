@@ -61,7 +61,16 @@ app.js snippet
   This directive works in conjuntion with the ng-repeat directive. It applies the mentioned class "success" if the position of element in the array is even. The "success" class is defined as part of the twitter bootstrap css file.
 
   4. {{}} :
-  
-  5. ng-href : 
+  The above is a directive that can contain any angular expression... meaning that whatever you write in here is evalauted against the current effective scope. So if we write {{survey.name}}, in this case remember that the scope defined by ng-repeat is in effect and that it has a property "survey" defined against this scope which points to the current element of the array.
+  So survey.name is evaluates to the current survey objects name.
+
+  5. ng-href="#/survey/{{survey.id}}" : We could've written href="#/survey/{{survey.id}}", and it would work fine, except that in a big page, the literal "{{survey.id}}" would be outout as it is till the time, angular got a chance to evaluate it... and hence if the user happens to click this before angular does something about it, the user would be taken to the invalid page - ...index.html#/survey/{{survey.id}}
+  So when we use ng-href... nothing gets outputted till angular processes this directive.. and when it does you get the value of "survey.id" replaces as part of the url and then the user will be directed to the correct url as intended.
+    
+
   6. ng-click="delete($index)" :
+  This directive evaluates the specified expression, when the user clicks the element on which this directive is mentioned. In this case the expression happens to be a call to a function that has ben defined in the scope of the controller.
+  You'll notice that we are passing "$index" as a parameter to the delete function call. Remeber that $index within a ng-repeat section, represents the index of the current element in the array. If you look in the delete function, we are simply removing that element from the array.
+  When this happens, ng-repeat refreshes the list of surveys displayed to the user.
+  How did this happen? You see when you define anything as part of the scope, angular watches it and notifies all the affected parties of when that value changes. This is putting it very simply, actually there are a lot more things going under the hood... but more on that some other time.
   
