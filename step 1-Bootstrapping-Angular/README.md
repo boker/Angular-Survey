@@ -68,13 +68,13 @@ app.js snippet
   So if we write {{survey.name}}, remember that the scope defined by ng-repeat is in effect, and that it has a property "survey" pointing to the current element of the array.
   So survey.name evaluates to the current survey's name property.
 
-  5. ng-href="#/survey/{{survey.id}}" : We could've written href="#/survey/{{survey.id}}", and it would work fine probably. Except that in a big page, the literal "{{survey.id}}" would be output as it is till the time, angular got a chance to evaluate it. Hence if the user happens to click this before angular does something about it, the user would be taken to the invalid page - ...index.html#/survey/{{survey.id}}
+  5. ng-href="#/survey/{{survey.id}}" : We could've written href="#/survey/{{survey.id}}", and it would work fine probably. Except that in a big page, the literal "{{survey.id}}" would be output as it is till the time angular got a chance to evaluate it. Hence if the user happens to click this before angular does something about it, the user would be taken to the invalid page - ...index.html#/survey/{{survey.id}}
   So when we use ng-href... no url is present till angular processes this directive.. and when it does you get the value of "survey.id" replaced as part of the url.
     
 
   6. ng-click="delete($index)" :
   This directive evaluates the specified expression, when the user clicks the element on which this directive is mentioned. In this case the expression happens to be a call to a function that has ben defined in the scope of the controller.
-  You'll notice that we are passing "$index" as a parameter to the delete function call. Remeber that $index within a ng-repeat section, represents the index of the current element in the array. If you look in the delete function, we are simply removing that element from the array.
+  You'll notice that we are passing "$index" as a parameter to the delete function call. Remember that $index within a ng-repeat section, represents the index of the current element in the array. If you look in the delete function, we are simply removing that element from the array.
   When this happens, ng-repeat refreshes the list of surveys displayed to the user.
-  How did this happen? You see when you define anything as part of the scope, angular watches it and notifies all the affected parties of when that value changes. This is putting it very simply, actually there are a lot more things going under the hood... but more on that some other time.
+  How did this happen? When you define anything as part of the scope, angular watches it and notifies all the affected parties of when that value changes. This is putting it very simply, actually there are a lot more things going under the hood... we'll take a look at it in a later step.
   
