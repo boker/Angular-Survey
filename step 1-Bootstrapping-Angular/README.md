@@ -42,13 +42,13 @@ app.js snippet
         }
 
 
-  All the ng-*s that you see in the html markup are somethimg called directives. To quote angular documention - "A directive is a behavior or DOM transformation which is triggered by the presence of a custom attribute, element name, class name or comment. A directive allows you to extend the HTML vocabulary in a declarative fashion.". You can define your own directives but more on that later.
+  All the ng-*s that you see in the html markup are something called directives. To quote angular documention - "A directive is a behavior or DOM transformation which is triggered by the presence of a custom attribute, element name, class name or comment. A directive allows you to extend the HTML vocabulary in a declarative fashion.". You can define your own directives but more on that later.
   Below are the directives used in the code snippet above, along with a description of what they do.
 
   1. ng-controller="surveyListcontroller" : 
-  This is a directive that allows up the wiring of a code behind function to the section of html section to which the controller applies. 
+  This is a directive is used to wire up a code behind function to the section of html section where this controller is associated.
   The controller function, "surveyListcontroller" in this case, is responsible for exposing the model and callbacks to the html via a $scope object passed to it by the angular framework.
-  All the functions and data defined on the $scope object inside the controller is available to the section of html covered by the controller. Controllers can be nested... but more on that later.
+  All the functions and data defined on the $scope object inside the controller is available to the section of html covered by the controller. Controllers can be nested... we'll cover this later.
   In our controller, we have defined a property called "surveys" and a function called "delete". Let's see, how these are used below.
 
   2. ng-repeat="survey in surveys" :
