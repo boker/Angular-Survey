@@ -13,7 +13,8 @@ Specifying the ng-submit directive, suppresses the normal form submission and gi
 
 * Input Types and Validation
 
-        <input type="text" id="surveyName" name="surveyName" class="span4" ng-model="survey.name" required="true" ng-Maxlength="20" autofocus/>
+        <input type="text" name="surveyName" ng-model="survey.name" required="true" ng-Maxlength="20"
+        autofocus class="span4" id="surveyName"/>
     
 Also notice how we've given a name to the input field above. Doing this defines a property on the surveyForm model that angular generated previously.
 It is very important to understand that this property doesn't contain the value of the input field. 
@@ -31,7 +32,9 @@ We have also specified that the field is a required field and the the maximum le
 
 * Validation error messages
 
-        <span ng-show="surveyForm.surveyName.$invalid" class="help-inline">Survey name is required and must be less than 20 characters.</span>
+        <span ng-show="surveyForm.surveyName.$invalid" class="help-inline">
+        Survey name is required and must be less than 20 characters.
+        </span>
         
 Above is just one of the ways of showing validation error messages.
 (ng-show="surveyForm.surveyName.$invalid") - This directive hides the element by default and displays it only if the specified expression is true. From previos discussion, "surveyForm.surveyName.$invalid" is true, if any of the validation requirements on "surveyForm.surveyName" field fails... .in which case the message within the span becomes visible.
@@ -40,7 +43,8 @@ Remember that the model "surveyForm.surveyName" is available on the scope as wel
 
 * ng-options
 
-        <select name="category" id="category" ng-options="category.id as category.name for category in categories" ng-model="survey.categoryid" required>
+        <select name="category" id="category" ng-model="survey.categoryid" 
+        ng-options="category.id as category.name for category in categories" required>
 
 Here I will use the angular documentation:
     ngOptions attribute can be used to dynamically generate a list of <option> elements for a <select> element using an array or an object obtained by evaluating the ngOptions expression.
@@ -52,7 +56,8 @@ In our case we are using the expression form - "select as label for value in arr
 * ng-pattern
 This is a way to specify the pattern that must match the user input for the value to be considered valid for the input field.  
 
-        <input type="text" id="numberOfParticipants" name="numberOfParticipants" class="span4" ng-model="survey.numberOfParticpants" ng-Maxlength="5" ng-pattern="/^\d{0,9}$/" autofocus/>
+        <input type="text" id="numberOfParticipants" name="numberOfParticipants" class="span4" 
+        ng-model="survey.numberOfParticpants" ng-Maxlength="5" ng-pattern="/^\d{0,9}$/" autofocus/>
         
 Although we could have used "<input type="number".../>, we've used ng-pattern to restrict the user input to numbers for demonstration purposes.
 
@@ -63,7 +68,8 @@ In the above line we are disabling the submit button if any of the form fields a
 
 * app.js - SurveyController
 
-        myApp.controller('SurveyController',['$scope','$routeParams','$location', function($scope, $routeParams, $location){
+        myApp.controller('SurveyController',['$scope','$routeParams','$location', 
+                                                function($scope, $routeParams, $location){
             var surveyId = +$routeParams.id ;
         	
         	$scope.categories = [
@@ -88,4 +94,5 @@ In the above line we are disabling the submit button if any of the form fields a
 You'll notice that we are creating a copy of the survey object to be edited. This is because since we are binding the survey object, if this happens to be the original object, we would have no way to throw away the changes made by the user, if we want to cancel edit.
 The save function is called, when the form is submitted, in which case we copy the contents of the $scope.survey into the original survey object. Of course in real life, we will call some server side service to persist the changes. We'll take a look at that in a later step.
 
-Notice also that we are asking the angular to supply the $location service to the controller. We then use this service to direct the user back to the list of surveys.
+Notice also that we are asking the angular to supply the $location service to the controller.
+We then use this service to direct the user back to the list of surveys.
