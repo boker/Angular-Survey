@@ -48,8 +48,8 @@ app.js snippet
   1. ng-controller="surveyListcontroller" : 
   This directive is used to wire up a code behind function to the section of html associated with this controller.
   The controller function, "surveyListcontroller" in this case, is responsible for exposing the model and callbacks to the html via a $scope object passed to it by the angular framework.
-  All the functions and data defined on the $scope object inside the controller is available to the section of html covered by the controller. Controllers can be nested... we'll cover this later.
-  In our controller, we have defined a property called "surveys" and a function called "delete". Let's see, how these are used below.
+  All the functions and data defined on the $scope object inside the controller are available to the section of html covered by the controller. Controllers can be nested... we'll cover this later.
+  In our controller, we have defined a property called "surveys" and a function called "delete". Let's see below, how these are used.
 
   2. ng-repeat="survey in surveys" :
   This is a directive using which we can repeat a the portion of html contained within the directive, including the element on which it is declared. The content within "..." is an agular expression. This is evaluated in the context of the scope associated with this directive.
