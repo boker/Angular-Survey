@@ -61,11 +61,12 @@ app.js snippet
       - $middle - true if the repeated element is between the first and last in the iterator.
 
   3. ng-class-even="'success'" :
-  This directive works in conjuntion with the ng-repeat directive. It applies the mentioned class "success" if the position of element in the array is even. The "success" class is defined as part of the twitter bootstrap css file.
+  This directive works in conjunction with the ng-repeat directive. It applies the mentioned class "success" to the element, if the position of element in the array is even. The "success" class is defined as part of the twitter bootstrap css file.
 
   4. {{}} :
-  The above is a directive that can contain any angular expression... meaning that whatever you write in here is evalauted against the current effective scope. So if we write {{survey.name}}, in this case remember that the scope defined by ng-repeat is in effect and that it has a property "survey" defined against this scope which points to the current element of the array.
-  So survey.name is evaluates to the current survey objects name.
+  The above is a directive that can contain any angular expression... meaning that whatever you write in here is evalauted against the current effective scope.
+  So if we write {{survey.name}}, remember that the scope defined by ng-repeat is in effect, and that it has a property "survey" pointing to the current element of the array.
+  So survey.name evaluates to the current survey's name property.
 
   5. ng-href="#/survey/{{survey.id}}" : We could've written href="#/survey/{{survey.id}}", and it would work fine, except that in a big page, the literal "{{survey.id}}" would be outout as it is till the time, angular got a chance to evaluate it... and hence if the user happens to click this before angular does something about it, the user would be taken to the invalid page - ...index.html#/survey/{{survey.id}}
   So when we use ng-href... nothing gets outputted till angular processes this directive.. and when it does you get the value of "survey.id" replaces as part of the url and then the user will be directed to the correct url as intended.
