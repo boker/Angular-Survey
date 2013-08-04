@@ -52,9 +52,9 @@ app.js snippet
   In our controller, we have defined a property called "surveys" and a function called "delete". Let's see below, how these are used.
 
   2. ng-repeat="survey in surveys" :
-  This is a directive using which we can repeat a the portion of html contained within the directive, including the element on which it is declared. The content within "..." is an agular expression. This is evaluated in the context of the scope associated with this directive.
+  This is a directive using which we can repeat a portion of html contained within the directive, including the element on which it is declared. The content within "..." is an angular expression. This is evaluated in the context of the scope associated with this directive.
   In our case surveys is an array defined in the scope associated with the controller "surveyListcontroller". So ng-repeat will repeat the set of elements within "tr", including itself. For each repeat, it creates a separate scope and defines a property called "survey" on that scope. This scope is then available to the rest of the html section within it.
-  The above scope also defines a the following special properties:
+  The above scope also defines the following special properties:
       - $index -  iterator offset of the repeated element (0..length-1)
       - $first - true if the repeated element is first in the iterator.
       - $last - true if the repeated element is last in the iterator.
