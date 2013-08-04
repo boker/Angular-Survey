@@ -68,8 +68,8 @@ app.js snippet
   So if we write {{survey.name}}, remember that the scope defined by ng-repeat is in effect, and that it has a property "survey" pointing to the current element of the array.
   So survey.name evaluates to the current survey's name property.
 
-  5. ng-href="#/survey/{{survey.id}}" : We could've written href="#/survey/{{survey.id}}", and it would work fine, except that in a big page, the literal "{{survey.id}}" would be outout as it is till the time, angular got a chance to evaluate it... and hence if the user happens to click this before angular does something about it, the user would be taken to the invalid page - ...index.html#/survey/{{survey.id}}
-  So when we use ng-href... nothing gets outputted till angular processes this directive.. and when it does you get the value of "survey.id" replaces as part of the url and then the user will be directed to the correct url as intended.
+  5. ng-href="#/survey/{{survey.id}}" : We could've written href="#/survey/{{survey.id}}", and it would work fine probably. Except that in a big page, the literal "{{survey.id}}" would be output as it is till the time, angular got a chance to evaluate it. Hence if the user happens to click this before angular does something about it, the user would be taken to the invalid page - ...index.html#/survey/{{survey.id}}
+  So when we use ng-href... no url is present till angular processes this directive.. and when it does you get the value of "survey.id" replaced as part of the url.
     
 
   6. ng-click="delete($index)" :
