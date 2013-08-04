@@ -1,5 +1,5 @@
 ##Step 2: Module and Routing 
-In this step, we have provided the behavior to show the individual survey on clicking on the appropriate edit link and how routing helps us do that.
+In this step, we have provided the behavior to show the individual survey when user clicks on the appropriate edit link and how routing helps us do that.
 
 * Module:
 Think of module as a grouping of closely related functions together. In a typical single page application, you would have a single module. If you are developing a reusable component, you might wrap all th ecode related to that module into a single module.
