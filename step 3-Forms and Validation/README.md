@@ -1,98 +1,90 @@
-##Step 2: Module and Routing 
-In this step, we have provided the behavior to show the individual survey on clicking on the appropriate edit link and how routing helps us do that.
+##Step 3: Forms and Validation
+In this phase we are going to implement the functionality of editing a selected survey. This will include validations as well. For the sake of covering wide enough range of scenarios, we've included 2 more properties as part of the survey object, a category and number of participants.
+A few other changes, which are not core, are that we've moved the surveys collection into a different file, so as not to distract.
+Time to dive in
 
-* Module:
-Think of module as a grouping of closely related functions together. In a typical single page application, you would have a single module. If you are developing a reusable component, you might wrap all th ecode related to that module into a single module.
-You are though free to define multiple modules in a SPA.. for more info refer to http://docs.angularjs.org/guide/module.
-Following are the changes that we have done in our application to use module, followed by explaination of the same.
+* Form
+        <form name="surveyForm" ng-submit="save()"> :
 
-1.
-javascript:
+First thing you'll notice is that we've put all our fields inside a form. This triggers angular's inbuilt ng-form directive. This defines a model with the same name as form on the scope.
+Form is specially required for angular's built in validation to work.
+Specifying the ng-submit directive, suppresses the normal form submission and gives angular a chance to evaluate the expression specified. In this case the save function defined on the scope in the controller gets called.
 
-    var myApp = angular.module('myApp', []);
 
-The code above creates a module identified by "myApp" and is assigned to a variable myApp.
+* Input Types and Validation
 
-html:
-
-    <html class="no-js" ng-app="myApp">
-
-In the html, we have specified that the main module of the application is the "myApp" module. Now when angular tries to find the controllers etc. that you code needs, it will look at the controller functions in this module, and if not found, then at the global scope.
-
-2.
-javascript:
-
-    myApp.controller('SurveyListcontroller', ['$scope', function ($scope) {
-          $scope.surveys = [
-    	      {id:1, name:"survey1", description:"survey description 1"},
-    	      {id:2, name:"survey 2", description:"survey description 2"}
-    	    ];
+        <input type="text" id="surveyName" name="surveyName" class="span4" ng-model="survey.name" required="true" ng-Maxlength="20" autofocus/>
     
-    	    $scope.delete = function(index){
-    	      $scope.surveys.splice(index,1);
-    	    }
-    }]);
+Also notice how we've given a name to the input field above. Doing this defines a property on the surveyForm model that angular generated previously.
+It is very important to understand that this property doesn't contain the value of the input field. 
+But since this is defined against the scope, it is availabe elsewhere within the form as well as inside the controller on the scope.
 
-We have removed the definition of the controller function from the global scope and defined it as part of the main module.
-We could have defined the above in a slightly simpler syntax like... "myApp.controller('SurveyListcontroller', function ($scope) {", but the above approach is recommended, because then minification will maintain the reference between the parameter and the service names required appropriately.
-So basically the first parameter is the name of the controiller that you are registering.
-The second parameter is an array, where the last parameter is the controller function itself.
-In between the first and the last parameters are the names of the parameters/services that are expected by the controller. Angular injects the appropriate instance of the service into the parameter at run time. We'll cover more of this later. For now understand that the names of the parameters are of importance and not the order of their declaration.
+The model, "surveyForm.surveyName" in this case, is an object with special properties defined by angular. A few of these are as below:
+    1. $invalid - This is true, if the user input doesn't meet any of the validation requirements... for example the field is require, but the user has not entered any value.
+    2. $valid - This is true, if all the validation requirements pass.
+    3. $error: {required:false} - In case any validations fail, this object contains a property for each of the validation failures. Each validation requirement is identified by a key.. such as "required", "maxlength" etc.
+       for a detailed version of out of the box validation attributes, refer to http://docs.angularjs.org/api/ng.directive:input
 
-* Routing and Partial Templates
-In the previous step, the entire html content was in a single file. But we need to change the content of the depending on the menu selection as well as when the user clicks to edit a particular survey, we'd want to take him to a survey edit page.
+ng-model - The directive ng-model sets up a 2-way binding mechanism between the value of the element and the model specified by the expression... "survey.name" in this case. The values of the model and the input field are kept synchronised by angular. So as the user types in, the value of the corresponding model changes automatically by angular magic.
 
-Welcome to routing. The following are what we've done to show the user different content, depneding on the url.
+We have also specified that the field is a required field and the the maximum lenght of this field is 20 characters... by using the ng-Maxlength attribute.
 
-1. Index.html
+* Validation error messages
 
-        <div ng-view/>
+        <span ng-show="surveyForm.surveyName.$invalid" class="help-inline">Survey name is required and must be less than 20 characters.</span>
+        
+Above is just one of the ways of showing validation error messages.
+(ng-show="surveyForm.surveyName.$invalid") - This directive hides the element by default and displays it only if the specified expression is true. From previos discussion, "surveyForm.surveyName.$invalid" is true, if any of the validation requirements on "surveyForm.surveyName" field fails... .in which case the message within the span becomes visible.
 
-We've replaced the entire content of the survey list with the above. The directive ng-view works with conjunction with the routing service explained further down. It provides a place holder where the actual content would be rendered depending on the url.
+Remember that the model "surveyForm.surveyName" is available on the scope as well. So another way could be to check these in the "save" function and respond to the user submit action, based on whether all the fields have met their validation requirements.
 
-2. views/SurveyList.html
-This contains the html content of the survey list yanked out of the index.html file.
+* ng-options
 
-3. views/survey.html
-This contains the html content to show the details of the selected survey, given it's Id. Right now it contains only some dummy text for dummy purposes.
+        <select name="category" id="category" ng-options="category.id as category.name for category in categories" ng-model="survey.categoryid" required>
 
-4. app.js
+Here I will use the angular documentation:
+    ngOptions attribute can be used to dynamically generate a list of <option> elements for a <select> element using an array or an object obtained by evaluating the ngOptions expression.
+    When an item in the <select> menu is selected, the value of array element or object property represented by the selected option will be bound to the model identified by the ngModel directive of the parent select element.
+    
+There are many different forms of expressions that we can specify for the ng-options to evaluate. For details please refer to the angular documentation at http://docs.angularjs.org/api/ng.directive:select
+In our case we are using the expression form - "select as label for value in array".. where "select" becomes the value of each option, the "label" becomes what is displayed and the value is the object in each iteration.
 
-        myApp.config(['$routeProvider',function ($routeProvider){
-            $routeProvider
-        		.when('/surveys', {
-        			templateUrl: 'views/SurveyList.html',
-        			controller: 'SurveyListcontroller'
-        		})
-        		.when('/survey/:id',{
-        			templateUrl: 'views/Survey.html',
-        			controller: 'SurveyController'
-        		})
-        		.otherwise({
-        			redirectTo: '/surveys'
-        		});
-        }]);
+* ng-pattern
+This is a way to specify the pattern that must match the user input for the value to be considered valid for the input field.  
 
-This is the real juice. 
-We define routing within the application configuration, by calling myApp.config function. 
-Like everywhere else, we specify that our configuration handler function expects a service by the name of $routeProvider. This is a service provided by Angular. 
-Next we define routes by calling the "when" functions of the $routeProvider.
+        <input type="text" id="numberOfParticipants" name="numberOfParticipants" class="span4" ng-model="survey.numberOfParticpants" ng-Maxlength="5" ng-pattern="/^\d{0,9}$/" autofocus/>
+        
+Although we could have used "<input type="number".../>, we've used ng-pattern to restrict the user input to numbers for demonstration purposes.
 
-This function accepts 2 parameters... the path and the route. The path is a relative path to the index.html page in the form of "index.html/#/<path>" . 
-The second parameter is an object with various properties. We are using 2 of them, the templateUrl and controller. The templateUrl specifies the partial html page that needs to be rendered at the position of ng-view.
-The controller specifies the controller function that is to be associated with the root of the html partial page. This is optional and you are free to specify the controller as part of the html itself.
-For all the options availabe, refer to http://docs.angularjs.org/api/ng.$routeProvider.
-At the end, we specify the default route to apply, in case the user hasn't typed in anything after index.html in the URL.
+* ng-disabled
+        <input class="btn btn-primary" type="submit" value="Save" ng-disabled="surveyForm.$invalid"/>
 
-Also note the following the following:
-"'/survey/:id'" in the above code and code "$scope.surveyId = $routeParams.id;" in the "SurveyController".
-When the url is of the form index.html/survey/1, then the value of "Id" can be accessed via the $routeParams service from within the SurveyController.
-Try clicking on the eidt link of any of the surveys to see the routing in action.
+In the above line we are disabling the submit button if any of the form fields are invalid.
 
+* app.js - SurveyController
 
-Note that the partial template page is cached by angular and hence multiple server trips to the same partial page is prevented.
+        myApp.controller('SurveyController',['$scope','$routeParams','$location', function($scope, $routeParams, $location){
+            var surveyId = +$routeParams.id ;
+        	
+        	$scope.categories = [
+        		{id:1, name:"eMail Based"},
+        		{id:2, name:"Online"},
+        		{id:3, name:"SMS Based"}
+        	];
+        
+        	var survey = _.find(surveys, { 'id': surveyId });
+        	$scope.survey = angular.copy(survey);
+        
+        	$scope.save = function(){
+        		$scope.survey = angular.copy($scope.survey, survey);
+        		$location.path('/surveys');
+        	}
+        
+        	$scope.cancel = function(){
+        		$location.path('/surveys');
+        	}
+        }])
 
-
-
-
+You'll notice that we are creating a copy of the survey object to be edited. This is because since we are binding the survey object, if this happens to be the original object, we would have no way to throw away the changes made by the user, if we want to cancel edit.
+The save function is called, when the form is submitted, in which case we copy the contents of the $scope.survey into the original survey object. Of course in real life, we will call some server side service to persist the changes. We'll take a look at that in a later step.
 
