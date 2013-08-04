@@ -88,3 +88,4 @@ In the above line we are disabling the submit button if any of the form fields a
 You'll notice that we are creating a copy of the survey object to be edited. This is because since we are binding the survey object, if this happens to be the original object, we would have no way to throw away the changes made by the user, if we want to cancel edit.
 The save function is called, when the form is submitted, in which case we copy the contents of the $scope.survey into the original survey object. Of course in real life, we will call some server side service to persist the changes. We'll take a look at that in a later step.
 
+Notice also that we are asking the angular to supply the $location service to the controller. We then use this service to direct the user back to the list of surveys.
