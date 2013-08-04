@@ -34,7 +34,7 @@ This introduces a new page for survey edit. In the process it covers the followi
 * Forms
 * validation
 * ng-select
-* 
+
 ###Step 4: 
 This introduces services. In additional it covers the following:
 * $http service
