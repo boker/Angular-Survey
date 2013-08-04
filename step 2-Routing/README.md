@@ -39,3 +39,41 @@ The second parameter is an array, where the last parameter is the controller fun
 In between the first and the last parameters are the names of the parameters/services that are expected by the controller. Angular injects the appropriate instance of the service into the parameter at run time. We'll cover more of this later. For now understand that the names of the parameters are of value and not the order of their declaration.
 
 * Routing and Partial Templates
+In the previous step, the entire html content was in a single file. But we need to change the content of the depending on the menu selection as well as when the user clicks to edit a particular survey, we'd want to take him to a survey edit page.
+
+Welcome to routing. The following are what we've done to show the user different content, depneding on the url.
+
+1. Index.html
+
+        <div ng-view/>
+
+
+
+2. views/SurveyList.html
+
+
+3. views/survey.html
+
+
+4. app.js
+
+        myApp.config(['$routeProvider',function ($routeProvider){
+            $routeProvider
+        		.when('/surveys', {
+        			templateUrl: 'views/SurveyList.html',
+        			controller: 'SurveyListcontroller'
+        		})
+        		.when('/survey/:id',{
+        			templateUrl: 'views/Survey.html',
+        			controller: 'SurveyController'
+        		})
+        		.otherwise({
+        			redirectTo: '/surveys'
+        		});
+        }]);
+
+
+
+
+
+
