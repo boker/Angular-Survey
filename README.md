@@ -1,7 +1,7 @@
 Angular-Survey
 ==============
 
-### Please see the note at the bottom before attempting to run any code and hitting your head agains the wall... or wishing you had mone to hit.
+### Please see the note at the bottom before attempting to run any code and hitting your head agains the wall... or wishing you had mine to hit.
 
 This is an attempt to teach angular from scratch, a small step at a time, to folks who have probably never worked with any javascript MV* kind of frameworks.
 The focus is on learning angular, keeping it simple and not introduce TDD or any other concept etc. which might make for a separate topic.
@@ -36,7 +36,7 @@ This introduces a new page for survey edit. In the process it covers the followi
 * ng-select
 
 ###Step 4: 
-This introduces services. In additional it covers the following:
+This introduces services. In addition it covers the following:
 * $http service
 * Services, Factories and Providers
 
