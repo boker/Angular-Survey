@@ -1,7 +1,7 @@
 Angular-Survey
 ==============
 
-### Please see the note at the bottom before attempting to run any code and hitting your head agains the wall... or wishing you had mone to hit.
+### Please see the note at the bottom before attempting to run any code and hitting your head against the wall... or wishing you had mine to hit.
 
 This is an attempt to teach angular from scratch, a small step at a time, to folks who have probably never worked with any javascript MV* kind of frameworks.
 The focus is on learning angular, keeping it simple and not introduce TDD or any other concept etc. which might make for a separate topic.
@@ -34,9 +34,9 @@ This introduces a new page for survey edit. In the process it covers the followi
 * Forms
 * validation
 * ng-select
-* 
+
 ###Step 4: 
-This introduces services. In additional it covers the following:
+This introduces services. In addition it covers the following:
 * $http service
 * Services, Factories and Providers
 
@@ -53,6 +53,6 @@ This introduces services. In additional it covers the following:
 ###Step 8: Takes a further dive into the world of directives and tries to use a JQuery Plugin internally to provide a declarative interface to JQuery
 
 
-###Browser Compatibility: Please run the examples on chrome only. Also the code will either need to be mapped to a web application or the chrome will need to be started in unsafe mode, to allow to CORS requests..
+###Browser Compatibility: Please run the examples on chrome only. Also the code will either need to be mapped to a web application or the chrome will need to be started in unsafe mode, to allow for CORS requests..
 
 
