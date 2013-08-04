@@ -21,10 +21,11 @@ It is very important to understand that this property doesn't contain the value 
 But since this is defined against the scope, it is availabe elsewhere within the form as well as inside the controller on the scope.
 
 The model, "surveyForm.surveyName" in this case, is an object with special properties defined by angular. A few of these are as below:
-    1. $invalid - This is true, if the user input doesn't meet any of the validation requirements... for example the field is require, but the user has not entered any value.
-    2. $valid - This is true, if all the validation requirements pass.
-    3. $error: {required:false} - In case any validations fail, this object contains a property for each of the validation failures. Each validation requirement is identified by a key.. such as "required", "maxlength" etc.
-       for a detailed version of out of the box validation attributes, refer to http://docs.angularjs.org/api/ng.directive:input
+
+1. $invalid - This is true, if the user input doesn't meet any of the validation requirements... for example the field is require, but the user has not entered any value.
+2. $valid - This is true, if all the validation requirements pass.
+3. $error: {required:false} - In case any validations fail, this object contains a property for each of the validation failures. Each validation requirement is identified by a key.. such as "required", "maxlength" etc.
+for a detailed version of out of the box validation attributes, refer to http://docs.angularjs.org/api/ng.directive:input
 
 ng-model - The directive ng-model sets up a 2-way binding mechanism between the value of the element and the model specified by the expression... "survey.name" in this case. The values of the model and the input field are kept synchronised by angular. So as the user types in, the value of the corresponding model changes automatically by angular magic.
 
@@ -54,6 +55,7 @@ There are many different forms of expressions that we can specify for the ng-opt
 In our case we are using the expression form - "select as label for value in array".. where "select" becomes the value of each option, the "label" becomes what is displayed and the value is the object in each iteration.
 
 * ng-pattern
+
 This is a way to specify the pattern that must match the user input for the value to be considered valid for the input field.  
 
         <input type="text" id="numberOfParticipants" name="numberOfParticipants" class="span4" 
