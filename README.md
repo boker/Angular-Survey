@@ -36,8 +36,9 @@ This introduces a new page for survey edit. In the process it covers the followi
 * ng-select
 
 ###Step 4: 
-This introduces services. In addition it covers the following:
+This introduces services including a few in-built angular services
 * $http service
+* $q service
 * Services, Factories and Providers
 
 
