@@ -1,0 +1,39 @@
+<div class="container">
+	<form name="surveyForm" ng-submit="save()">
+		<div class="control-group">
+			<label class="control-label" for="SurveyName">Survey Name
+			</label>
+			<div class="controls controls-row">
+				<input type="text" id="surveyName" name="surveyName" class="span4" ng-model="survey.name" required="true" ng-Maxlength="20" autofocus/>
+	            <span ng-show="surveyForm.surveyName.$invalid" class="help-inline">Survey name is required and must be less than 20 characters.</span>
+			</div>
+			<div class="controls controls-row">
+				<label class="control-label" for="category">Category
+				</label>
+				<select name="category" id="category" ng-options="category.id as category.name for category in categories" ng-model="survey.categoryid" required>
+				</select>
+	            <span ng-show="surveyForm.category.$error.required" class="help-inline">Have to choose a category
+	            </span>
+			</div>
+			<div class="controls controls-row">
+				<label class="control-label" for="description">Description
+				</label>
+				<input type="text" id="description" name="description" class="span4" ng-model="survey.description" ng-required="true" ng-Maxlength="100" autofocus/>
+	            <span ng-show="surveyForm.description.$error.required" class="help-inline">Survey description must be less than 100 characters.</span>
+			</div>
+			<div class="controls controls-row">
+				<label class="control-label" for="numberOfParticipants">numberOfParticipants
+				</label>
+				<input type="text" id="numberOfParticipants" name="numberOfParticipants" class="span4" ng-model="survey.numberOfParticpants" ng-Maxlength="5" ng-pattern="/^\d{0,9}$/" autofocus/>
+	            <span ng-show="surveyForm.numberOfParticipants.$error.maxlength" class="help-inline">Max 5 digits long.
+	            </span>
+	            <span ng-show="surveyForm.numberOfParticipants.$error.pattern" class="help-inline">Not a number.
+	            </span>
+			</div>
+			<br>
+			<br>
+			<button class="btn" ng-click="cancel()">Cancel</button>
+			<input class="btn btn-primary" type="submit" value="Save" ng-disabled="surveyForm.$invalid"/>
+		</div>
+	</form>
+</div>
