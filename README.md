@@ -39,18 +39,18 @@ This introduces a new page for survey edit. In the process it covers the followi
 This introduces services including a few in-built angular services and promises
 * $http service
 * $q service
-* Services, Factories and Providers
+* Services
 
 
-###Step 5: This shows the development of a custom directive
+###Step 5: Intro to custom directives
 
 
-###Step 6: Takes a further dive into the world of directives and tries to use a JQuery Plugin internally to provide a declarative interface to JQuery
+###Step 6: Deeper into directives - integrating with JQuery plugins
 
 
 ###Step 7: This introduces the concept of filters
 
 
-###Browser Compatibility: Please run the examples on chrome only. Also the code will either need to be mapped to a web application or the chrome will need to be started in unsafe mode, to allow for CORS requests..
+###Browser Compatibility: Please run the sample on firefox. If you choose to run on chrome, then you'll have to map each of the sample folders to a set application locally. In case of IIS users, if you are creating a web application, you will need to add a mime type for .json file as well.
 
 
