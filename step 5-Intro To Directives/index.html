@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css({.tmp,app}) styles/main.css -->
+        <link rel="stylesheet" href="styles/bootstrap.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+</head>
+  <body>
+    <!-- Add your site or application content here -->
+    <div class="container">
+        <div class="navbar-brand">Do It Yourself Surveys</div>
+        <div class="navbar">
+            <div class="nav-collapse collapse bs-navbar-collapse navbar-inner">
+              <ul class="nav navbar-nav">
+                <li class="active">
+                  <a href="#">Surveys</a>
+                </li>
+                <li>
+                  <a href="#">Questions</a>
+                </li>
+                <li>
+                  <a href="#">Participants</a>
+                </li>
+                <li>
+                  <a href="#">Runs</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    <div ng-view/>
+    <script src="scripts/libs/angular/angular.js"></script>
+    <script src="scripts/libs/lodash.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/main.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/directives/main.js"></script>
+</body>
+</html>

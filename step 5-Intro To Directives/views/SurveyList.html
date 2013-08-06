@@ -1,0 +1,26 @@
+<div class="container">
+    <button class="btn btn-primary">New</button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="survey in surveys" ng-class-even="'success'">
+                <td>
+                    {{survey.name}}
+                    <my-accordion>
+                        <div>Category Id: {{survey.categoryid}}</div>
+                        <div>No of Participants: {{survey.numberOfParticpants}}</div>                        
+                    </my-accordion>
+                </td>
+                <td>{{survey.description}}</td>
+                <td><a ng-href="#/survey/{{survey.id}}">Edit</a><div class="span1"> </span><a ng-href="#" 
+                    ng-click="delete($index)">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
