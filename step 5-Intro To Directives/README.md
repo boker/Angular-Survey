@@ -1,6 +1,6 @@
 ##Step 5: Intro to Directives
 
-In this step we've added the functionality to expand a particular row of a survey to see the more details like categoryId and number of particpants.
+In this step we've added the functionality to expand a particular row of a survey to see more details like categoryId and number of particpants.
 Let's jump into what we've done
 
 * Meet custom directive
